@@ -109,10 +109,36 @@ public class Address_Book
         list.add(person);
         person.display();
 	}
+	public void showAllContacts()
+	{
+		for(Contacts c: list)
+		{
+			System.out.println(" ");
+			System.out.println("First Name:: "+c.getFirstName());
+			System.out.println("Last Name:: "+c.getLastName());
+			System.out.println("Email:: "+c.getEmailId());
+			System.out.println("Address:: "+c.getAddress());
+			System.out.println("City Name:: "+c.getCity());
+			System.out.println("Zip Code:: "+c.getZip());
+			System.out.println("Phone Number:: "+c.getPhoneNo());
+		}
+	}
 	public static void main(String[] args) 
 	{
-		Address_Book  Contacts_1 = new Address_Book ();
+		HashMap<String, Address_Book> addressBooks = new HashMap<>();
+		Address_Book  book1 = new Address_Book ();
+		Address_Book  book2 = new Address_Book ();
+		Address_Book  book3 = new Address_Book ();
+		addressBooks.put("AddressBook1", book1);
+		addressBooks.put("AddressBook2", book2);
+		addressBooks.put("AddressBook3", book3);
 		Scanner sc = new Scanner(System.in);
+		System.out.println("Choose Address Book");
+		System.out.println("1. Address Book 1");
+		System.out.println("2. Address Book 2");
+		System.out.println("3. Address Book 3");
+		int chooseAddressBook = sc.nextInt();
+		System.out.println("Choose What to do in this Address Book");
 		System.out.println("0. Exit");
 		System.out.println("1. Add Contacts");
 		System.out.println("2. Show All Contacts");
@@ -125,29 +151,63 @@ public class Address_Book
 			switch(choice)
 			{
 				case 1:
-					Contacts_1.ContactsDetails();
-					break;
-					
-				case 2:
-					for(Contacts c: list)
+					if(chooseAddressBook == 1)
 					{
-						System.out.println(" ");
-						System.out.println("First Name:: "+c.getFirstName());
-						System.out.println("Last Name:: "+c.getLastName());
-						System.out.println("Email:: "+c.getEmailId());
-						System.out.println("Address:: "+c.getAddress());
-						System.out.println("City Name:: "+c.getCity());
-						System.out.println("Zip Code:: "+c.getZip());
-						System.out.println("Phone Number:: "+c.getPhoneNo());
+						book1.ContactsDetails();
+					}
+					else if(chooseAddressBook == 1)
+					{
+						book2.ContactsDetails();						
+					}
+					else if(chooseAddressBook == 1)
+					{
+						book3.ContactsDetails();
 					}
 					break;
 					
+				case 2:
+					if(chooseAddressBook == 1)
+					{
+						book1.showAllContacts();
+					}
+					else if(chooseAddressBook == 1)
+					{
+						book2.showAllContacts();						
+					}
+					else if(chooseAddressBook == 1)
+					{
+						book3.showAllContacts();						
+					}				
+					break;
+					
 				case 3:
-					Contacts_1.editContact();
+					if(chooseAddressBook == 1)
+					{
+						book1.editContact();
+					}
+					else if(chooseAddressBook == 1)
+					{
+						book2.editContact();						
+					}
+					else if(chooseAddressBook == 1)
+					{
+						book3.editContact();						
+					}
 					break;
 					
 				case 4:
-					Contacts_1.deleteContact();
+					if(chooseAddressBook == 1)
+					{
+						book1.deleteContact();
+					}
+					else if(chooseAddressBook == 1)
+					{
+						book2.deleteContact();						
+					}
+					else if(chooseAddressBook == 1)
+					{
+						book3.deleteContact();						
+					}					
 					break;
 		
 				default:
@@ -155,6 +215,13 @@ public class Address_Book
 					break;
 			}
 			System.out.println(" ");
+			System.out.println("Choose Address Book");
+			System.out.println("1. Address Book 1");
+			System.out.println("2. Address Book 2");
+			System.out.println("3. Address Book 3");
+			chooseAddressBook = sc.nextInt();
+			System.out.println(" ");
+			System.out.println("Choose What to do in this Address Book");
 			System.out.println("0. Exit");
 			System.out.println("1. Add Contacts");
 			System.out.println("2. Show All Contacts");
@@ -163,7 +230,7 @@ public class Address_Book
 			System.out.println("Enter Your Choice");
 			choice = sc.nextInt();
 		}
-		System.out.println("The Program Got Exit.");
+		System.out.println("The Program Got Exit.");		
 	}
 }
 
